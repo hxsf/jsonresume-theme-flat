@@ -1,22 +1,22 @@
 <!doctype html>
 <html>
 	<head>
-	
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	
+
 	<title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
-	
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-	
+
 	<style type="text/css">
 	{{{css}}}
 	</style>
-	
+
 	</head>
 	<body>
-	
+
 	<header id="header">
 		<div class="container">
 			<div class="row">
@@ -49,7 +49,9 @@
 			{{#email}}
 			<div class="col-sm-6">
 				<strong>{{i18n "Email"}}</strong>
-				<div class="email">{{.}}</div>
+				<div class="email">
+					<a href="mailto://{{.}}">{{.}}</a>
+				</div>
 			</div>
 			{{/email}}
 			{{#phone}}
@@ -58,14 +60,24 @@
 				<div class="phone">{{.}}</div>
 			</div>
 			{{/phone}}
+			</div>
+			<div class="row">
 			{{#website}}
 			<div class="col-sm-6">
 				<strong>{{i18n "Website"}}</strong>
 				<div class="website">
-					<a href="{{.}}">{{.}}</a>
+					<a href="{{.}}" class="print-hide">{{.}}</a>
 				</div>
 			</div>
 			{{/website}}
+			{{#qq}}
+			<div class="col-sm-6">
+				<strong>{{i18n "QQ"}}</strong>
+				<div class="qq">
+					<a href="{{.}}" class="print-hide">{{.}}</a>
+				</div>
+			</div>
+			{{/qq}}
 			</div>
 		</div>
 	</section>
@@ -106,7 +118,7 @@
 					{{else}}
 						{{#if url}}
 						<div class="url">
-							<a href="{{url}}">{{url}}</a>
+							<a href="{{url}}" class="print-hide">{{url}}</a>
 						</div>
 						{{/if}}
 					{{/if}}
@@ -126,7 +138,7 @@
 		<div class="col-sm-9">
 			<div class="row">
 			{{#each resume.work}}
-			<div class="col-sm-12">
+			<div class="col-sm-12 work">
 				<h4 class="strike-through">
 					<span>{{company}}</span>
 					<span class="date">
@@ -135,7 +147,7 @@
 				</h4>
 				{{#website}}
 				<div class="website pull-right">
-					<a href="{{.}}">{{.}}</a>
+					<a href="{{.}}" class="print-hide">{{.}}</a>
 				</div>
 				{{/website}}
 				{{#position}}
@@ -180,7 +192,7 @@
 				</h4>
 				{{#website}}
 				<div class="website pull-right">
-					<a href="{{.}}">{{.}}</a>
+					<a href="{{.}}" class="print-hide">{{.}}</a>
 				</div>
 				{{/website}}
 				{{#position}}
@@ -207,7 +219,7 @@
 		</div>
 	</section>
 	{{/if}}
-	
+
 	{{#if resume.education.length}}
 	<section id="education" class="row">
 		<aside class="col-sm-3">
@@ -247,7 +259,7 @@
 		</div>
 	</section>
 	{{/if}}
-	
+
 	{{#if resume.awards.length}}
 	<section id="awards" class="row">
 		<aside class="col-sm-3">
@@ -283,7 +295,7 @@
 		</div>
 	</section>
 	{{/if}}
-	
+
 	{{#if resume.publications.length}}
 	<section id="publications" class="row">
 		<aside class="col-sm-3">
@@ -321,7 +333,7 @@
 		</div>
 	</section>
 	{{/if}}
-	
+
 	{{#if resume.skills.length}}
 	<section id="skills" class="row">
 		<aside class="col-sm-3">
@@ -359,16 +371,16 @@
 			<div class="row">
 			{{#each resume.languages}}
 			<div class="col-sm-6">
-				{{#language}}
+				{{#name}}
 				<div class="language">
 					<strong>{{.}}</strong>
 				</div>
-				{{/language}}
-				{{#fluency}}
+				{{/name}}
+				{{#level}}
 				<div class="fluency">
 					{{.}}
 				</div>
-				{{/fluency}}
+				{{/level}}
 			</div>
 			{{/each}}
 			</div>
@@ -403,7 +415,7 @@
 		</div>
 	</section>
 	{{/if}}
-	
+
 	{{#if resume.references.length}}
 	<section id="references" class="row">
 		<aside class="col-sm-3">
@@ -431,6 +443,6 @@
 	{{/if}}
 
 	</div>
-	
+
 	</body>
 </html>

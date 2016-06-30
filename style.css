@@ -64,10 +64,11 @@ h4 span:first-child {
 	margin-bottom: 10px;
 }
 .col-sm-12 h4 {
-	margin-top: 12px; 
+	margin-top: 12px;
 }
 .col-sm-12 + .col-sm-12 {
-	margin-top: 30px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 #header {
 	background: #f4f6f6;
@@ -113,7 +114,6 @@ h4 span:first-child {
 #publications .website a:before {
 	content: attr(href);
 }
-
 @media print {
 	.col-sm-3, .col-sm-6, .col-sm-9 {
 		float: left;
@@ -126,6 +126,9 @@ h4 span:first-child {
 	}
 	.col-sm-9 {
 		width: 75%;
+	}
+	a.print-hide:after {
+		content: "";
 	}
 }
 
@@ -180,7 +183,7 @@ h4 span:first-child {
 	}
 	.strike-through span {
 		display: block;
-	}	
+	}
 	#header {
 		margin-bottom: 10px;
 		padding: 40px 0;
